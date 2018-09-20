@@ -230,9 +230,6 @@ function drawInputTrianglesUsingPaths(context) {
     } // end if triangle files found
 } // end draw input triangles
 
-
-/* main -- here is where execution begins after window load */
-
 function main() {
 
     // Get the canvas and context
@@ -242,9 +239,9 @@ function main() {
     //drawRandPixels(context);
     // shows how to draw pixels
     
-    drawRandPixelsInInputTriangles(context);
+    //drawRandPixelsInInputTriangles(context);
     // shows how to draw pixels and read input file
     
-    //drawInputTrianglesUsingPaths(context);
+    drawInputTrianglesUsingPaths(context);
     // shows how to read input file, but not how to draw pixels
 }
