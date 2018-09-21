@@ -280,9 +280,11 @@ function rayCastNoLighting(context) {
                     	var t2 = ((point[0]-v3[0]) * (v2[1] - v3[1]) - (v2[0] - v3[0]) * (point[1] - v3[1])) < 0.0;
                     	var t3 = ((point[0]-v1[0]) * (v3[1] - v1[1]) - (v3[0] - v1[0]) * (point[1] - v1[1])) < 0.0;
                     	
-                    	if((t1==t2)&&(t2==t3)) // draw the pixel if inside the triangle
+                        // draw the pixel if inside the triangle
+                    	if((t1==t2)&&(t2==t3)) {
                             point = [point[0] - 0.5, point[1] - 0.5];
                     		drawPixel(imagedata, eye[0] + point[0], eye[1] - point[1], c);
+                        }
             		}
             	} // end for pixels in triangle
         	} // end for triangles
