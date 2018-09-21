@@ -239,7 +239,7 @@ function rayCastNoLighting(context) {
     const PIXEL_DENSITY = 0.1;
     
     if (inputTriangles != String.null) { 
-        var c = new Color(0,0,0,0); // init the triangle color
+        var c = new Color(80,40,40,0); // init the triangle color
         var n = inputTriangles.length; // the number of input files
 
         // Loop over the triangles, draw rand pixels in each
@@ -299,11 +299,11 @@ function main() {
     //drawRandPixels(context);
     // shows how to draw pixels
     
-    drawRandPixelsInInputTriangles(context);
+    //drawRandPixelsInInputTriangles(context);
     // shows how to draw pixels and read input file
     
     //drawInputTrianglesUsingPaths(context);
     // shows how to read input file, but not how to draw pixels
     
-    //rayCastNoLighting(context);
+    rayCastNoLighting(context);
 }
