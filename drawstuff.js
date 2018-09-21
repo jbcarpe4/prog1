@@ -234,7 +234,7 @@ function rayCastNoLighting(context) {
     var inputTriangles = getInputTriangles();
     var w = context.canvas.width;
     var h = context.canvas.height;
-    var eye = [w/2, h/2] //eye location at (0.5, 0.5)
+    var eye = [w/2.0, h/2.0] //eye location at (0.5, 0.5)
     var imagedata = context.createImageData(w,h);
     const PIXEL_DENSITY = 0.1;
     var numCanvasPixels = (w*h)*PIXEL_DENSITY; 
