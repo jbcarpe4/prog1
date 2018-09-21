@@ -260,29 +260,28 @@ function rayCastNoLighting(context) {
         		var vertexPos3 = inputTriangles[f].vertices[vertex3];
         		
         		// triangle position on canvas
-        		
         		var v1 = [w*vertexPos1[0], h*vertexPos1[1]];
         		var v2 = [w*vertexPos2[0], h*vertexPos2[1]];
         		var v3 = [w*vertexPos3[0], h*vertexPos3[1]];
-        		
-        		// calculate triangle area on canvas (shoelace formula)
-        		var triangleArea = 0.5*Math.abs(v1[0]*v2[1]+v2[0]*v3[1]+v3[0]*v1[1]-v2[0]*v1[1]-v3[0]*v2[1]-v1[0]*v3[1]);
-        		var numTrianglePixels = triangleArea; // init num pixels in triangle
-
-                numTrianglePixels *= PIXEL_DENSITY; // percentage of triangle area to render to pixels
-            	numTrianglePixels = Math.round(numTrianglePixels);
-
+                
                 c.change(
             		inputTriangles[f].material.diffuse[0]*255,
                 	inputTriangles[f].material.diffuse[1]*255,
                 	inputTriangles[f].material.diffuse[2]*255,
                 	255); // triangle diffuse color
-            	for (var p=0; p<numTrianglePixels; p++) {
-                    var point = [w, h]; // on canvas plane
-            		var triangleTest = 0;
-
-            		drawPixel(imagedata,point[0],point[1],c);
-
+                
+                for (var row = 0; row < w; row++) {
+                    for (var col = 0; col < h; col++) {                  
+            			point = [row, col];
+                        
+                    	// plane checking            			
+                    	var t1 = ((point[0]-v2[0]) * (v1[1] - v2[1]) - (v1[0] - v2[0]) * (point[1] - v2[1])) < 0.0;
+                    	var t2 = ((point[0]-v3[0]) * (v2[1] - v3[1]) - (v2[0] - v3[0]) * (point[1] - v3[1])) < 0.0;
+                    	var t3 = ((point[0]-v1[0]) * (v3[1] - v1[1]) - (v3[0] - v1[0]) * (point[1] - v1[1])) < 0.0;
+                    	
+                    	if((t1==t2)&&(t2==t3)) // draw the pixel if inside the triangle
+                    		drawPixel(imagedata,point[0],point[1],c);
+            		}
             	} // end for pixels in triangle
         	} // end for triangles
     	} // end for files
@@ -302,6 +301,8 @@ function main() {
     //drawRandPixelsInInputTriangles(context);
     // shows how to draw pixels and read input file
     
-    drawInputTrianglesUsingPaths(context);
+    //drawInputTrianglesUsingPaths(context);
     // shows how to read input file, but not how to draw pixels
+    
+    rayCastNoLighting(context);
 }
