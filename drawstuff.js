@@ -280,7 +280,7 @@ function rayCastNoLighting(context) {
                     	
                         // draw the pixel if inside the triangle
                     	if((t1==t2)&&(t2==t3)) {
-                    		drawPixel(imagedata, eye[0] + point[0], eye[1] - point[1] + 20, c);
+                    		drawPixel(imagedata, eye[0] + point[0], eye[1] - point[1] + 200, c);
                         }
             		}
             	} // end for pixels in triangle
