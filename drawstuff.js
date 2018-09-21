@@ -234,12 +234,12 @@ function rayCastNoLighting(context) {
     var inputTriangles = getInputTriangles();
     var w = context.canvas.width;
     var h = context.canvas.height;
-    var eye = [w/2.0, h/2.0] //eye location at (0.5, 0.5)
+    var eye = [w/2, h/2] //eye location at (0.5, 0.5)
     var imagedata = context.createImageData(w,h);
     const PIXEL_DENSITY = 0.1;
     
     if (inputTriangles != String.null) { 
-        var c = new Color(80,40,40,0); // init the triangle color
+        var c = new Color(0,0,0,0); // init the triangle color
         var n = inputTriangles.length; // the number of input files
 
         // Loop over the triangles, draw rand pixels in each
@@ -280,7 +280,7 @@ function rayCastNoLighting(context) {
                     	
                         // draw the pixel if inside the triangle
                     	if((t1==t2)&&(t2==t3)) {
-                    		drawPixel(imagedata, eye[0] + point[0], eye[1] - point[1] + 200, c);
+                    		drawPixel(imagedata, point[0], h - point[1], c);
                         }
             		}
             	} // end for pixels in triangle
