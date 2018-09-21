@@ -261,13 +261,13 @@ function rayCastNoLighting(context) {
         		var v2 = [w*vertexPos2[0], h*vertexPos2[1]];
         		var v3 = [w*vertexPos3[0], h*vertexPos3[1]];
                 
-                /*
+                
                 c.change(
             		inputTriangles[f].material.diffuse[0]*255,
                 	inputTriangles[f].material.diffuse[1]*255,
                 	inputTriangles[f].material.diffuse[2]*255,
                 	255); // triangle diffuse color
-                */
+                
                 
                 for (var row = 0; row < w; row++) {
                     for (var col = 0; col < h; col++) {                  
