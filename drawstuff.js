@@ -273,7 +273,7 @@ function rayCastNoLighting(context) {
                 
                 for (var row = 0; row < w; row++) {
                     for (var col = 0; col < h; col++) {                  
-            			point = [row, col];
+            			var point = [row, col];
                         
                     	// plane checking            			
                     	var t1 = ((point[0]-v2[0]) * (v1[1] - v2[1]) - (v1[0] - v2[0]) * (point[1] - v2[1])) < 0.0;
