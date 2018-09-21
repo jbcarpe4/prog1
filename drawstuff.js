@@ -234,6 +234,7 @@ function rayCastNoLighting(context) {
     var inputTriangles = getInputTriangles();
     var w = context.canvas.width;
     var h = context.canvas.height;
+    var eye = [w/2 + 0.5, h/2 - 0.5]
     var imagedata = context.createImageData(w,h);
     const PIXEL_DENSITY = 0.1;
     var numCanvasPixels = (w*h)*PIXEL_DENSITY; 
@@ -280,7 +281,7 @@ function rayCastNoLighting(context) {
                     	var t3 = ((point[0]-v1[0]) * (v3[1] - v1[1]) - (v3[0] - v1[0]) * (point[1] - v1[1])) < 0.0;
                     	
                     	if((t1==t2)&&(t2==t3)) // draw the pixel if inside the triangle
-                    		drawPixel(imagedata,point[0],point[1],c);
+                    		drawPixel(imagedata, eye[0] - point[0], eye[1] + point[1], c);
             		}
             	} // end for pixels in triangle
         	} // end for triangles
