@@ -462,14 +462,7 @@ function rayCastBlinnPhong(context) {
                 var shade2 = inputTriangles[f].material.ambient[1] + inputTriangles[f].material.diffuse[1] +
                              inputTriangles[f].material.specular[1];
                 var shade3 = inputTriangles[f].material.ambient[2] + inputTriangles[f].material.diffuse[2] +
-                             inputTriangles[f].material.specular[2];
-                
-                c.change(
-            		inputTriangles[f].material.diffuse[0]*255,
-                	inputTriangles[f].material.diffuse[1]*255,
-                	inputTriangles[f].material.diffuse[2]*255,
-                	255); // triangle diffuse color
-                
+                             inputTriangles[f].material.specular[2];                
                 
                 for (var row = 0; row < w; row++) {
                     for (var col = 0; col < h; col++) {                  
@@ -491,9 +484,9 @@ function rayCastBlinnPhong(context) {
                             var difColor = new Color();
                             // calc diffuse color
                             difColor.change(
-                                inputTriangles[f].material.diffuse[0]*255 * NdotL,
-                                inputTriangles[f].material.diffuse[1]*255 * NdotL,
-                                inputTriangles[f].material.diffuse[2]*255 * NdotL,
+                                inputTriangles[f].material.diffuse[0]*255*NdotL,
+                                inputTriangles[f].material.diffuse[1]*255*NdotL,
+                                inputTriangles[f].material.diffuse[2]*255*NdotL,
                                 255);
                             
                     		drawPixel(imagedata, point[0], h - point[1], difColor);
