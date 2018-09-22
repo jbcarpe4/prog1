@@ -475,11 +475,14 @@ function rayCastBlinnPhong(context) {
                     	
                         // draw the pixel if inside the triangle
                     	if((t1==t2)&&(t2==t3)) {
-                            var pixPos = new Vector(row, col, vertexPos1[2] * w);
+                            var nVect = new Vector(row, col, vertexPos1[2] * w);
                             var lVect = new Vector(-3 * w, w, -0.5 * w);
-                            lVect = Vector.subtract(lVect,pixPos);
+                            lVect = Vector.subtract(lVect,nVect);
                             lVect = Vector.normalize(lVect);
-                            var NdotL = Vector.dot(lVect,new Vector(0,1,0)); // rect in xy plane
+                            
+                            nVect = Vector.normalize(nVect);
+                            
+                            var NdotL = Vector.dot(lVect,nVect); // rect in xy plane
 
                             var difColor = new Color();
                             // calc diffuse color
