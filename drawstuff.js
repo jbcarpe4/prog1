@@ -488,9 +488,9 @@ function rayCastBlinnPhong(context) {
                             var difColor = new Color();
                             // calc diffuse color
                             difColor.change(
-                                inputTriangles[f].material.diffuse[0]*255*NdotL,
-                                inputTriangles[f].material.diffuse[1]*255*NdotL,
-                                inputTriangles[f].material.diffuse[2]*255*NdotL,
+                                (inputTriangles[f].material.diffuse[0]*255*NdotL)+(inputTriangles[f].material.ambient[0]*255),
+                                (inputTriangles[f].material.diffuse[1]*255*NdotL)+(inputTriangles[f].material.ambient[1]*255),
+                                (inputTriangles[f].material.diffuse[2]*255*NdotL)+(inputTriangles[f].material.ambient[2]*255),
                                 255);
                             
                     		drawPixel(imagedata, point[0], h - point[1], difColor);
