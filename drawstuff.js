@@ -368,6 +368,7 @@ function drawInputTrianglesUsingPaths(context) {
     } // end if triangle files found
 } // end draw input triangles
 
+//for part 1
 function rayCastNoLighting(context) {
     var inputTriangles = getInputTriangles();
     var w = context.canvas.width;
@@ -427,6 +428,8 @@ function rayCastNoLighting(context) {
     } // end if triangle file found
 }
 
+//for part 2
+//used code from exercise 3 and used equation in local illumination notes
 function rayCastBlinnPhong(context) {
     var inputTriangles = getInputTriangles();
     var w = context.canvas.width;
