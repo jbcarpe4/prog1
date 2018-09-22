@@ -484,7 +484,7 @@ function rayCastBlinnPhong(context) {
                     	if((t1==t2)&&(t2==t3)) {
                             var pixPos = new Vector(row, col, vertexPos1[2] * w);
                             var lVect = new Vector(-3 * w, w, -0.5 * w);
-                            lVect = Vector.subtract(lVect,worldLoc);
+                            lVect = Vector.subtract(lVect,pixPos);
                             lVect = Vector.normalize(lVect);
                             var NdotL = Vector.dot(lVect,new Vector(0,0,1)); // rect in xy plane
 
@@ -492,7 +492,7 @@ function rayCastBlinnPhong(context) {
                             // calc diffuse color
                             difColor.change(
                                 inputTriangles[f].material.diffuse[0]*255 * NdotL,
-                                inputTriangles[f].material.diffuse[1]*255 * NdotL
+                                inputTriangles[f].material.diffuse[1]*255 * NdotL,
                                 inputTriangles[f].material.diffuse[2]*255 * NdotL,
                                 255);
                             
