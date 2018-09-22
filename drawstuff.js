@@ -493,6 +493,7 @@ function rayCastBlinnPhong(context) {
                             difColor.r = inputTriangles[f].material.diffuse[0]*255 * NdotL;
                             difColor.g = inputTriangles[f].material.diffuse[1]*255 * NdotL;
                             difColor.b = inputTriangles[f].material.diffuse[2]*255 * NdotL;
+                            difColor.a = 255;
                             
                     		drawPixel(imagedata, point[0], h - point[1], difColor);
                         }
@@ -519,9 +520,9 @@ function main() {
     //drawInputTrianglesUsingPaths(context);
     // shows how to read input file, but not how to draw pixels
     
-    //rayCastNoLighting(context);
+    rayCastNoLighting(context);
     //part 1
     
-    rayCastBlinnPhong(context);
+    //rayCastBlinnPhong(context);
     //part 2
 }
