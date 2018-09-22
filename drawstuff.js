@@ -480,7 +480,8 @@ function rayCastBlinnPhong(context) {
                             lVect = Vector.subtract(lVect,nVect);
                             lVect = Vector.normalize(lVect);
                                                         
-                            var NdotL = Vector.dot(lVect, new Vector(1,0,0)); // rect in xy plane
+                            var NdotL = Vector.dot(lVect, nVect); // rect in xy plane
+                            if (NdotL < 0) NdotL *= -1;
 
                             var difColor = new Color();
                             // calc diffuse color
