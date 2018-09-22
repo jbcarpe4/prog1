@@ -479,9 +479,7 @@ function rayCastBlinnPhong(context) {
                             var lVect = new Vector(-3 * w, w, -0.5 * w);
                             lVect = Vector.subtract(lVect,nVect);
                             lVect = Vector.normalize(lVect);
-                            
-                            nVect = Vector.normalize(nVect);
-                            
+                                                        
                             var NdotL = Vector.dot(lVect,nVect); // rect in xy plane
 
                             var difColor = new Color();
